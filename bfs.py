@@ -17,8 +17,8 @@ class TreeNode:
 def bfs(start, target):
     Open, Closed = [start], []
     while Open:
-        print(Open)
-        print(Closed)
+        sleep(0.5)
+        print("open:"+",".join([node.value for node in Open])+" close:"+",".join([node.value for node in Closed]))
         x = Open.pop(0)
         if x.value == target:
             return True
