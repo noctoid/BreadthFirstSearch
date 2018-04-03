@@ -1,7 +1,5 @@
 #!/usr/local/bin/python3
 
-from time import sleep
-
 class TreeNode:
     def __init__(self, value, children):
         self.value = value
@@ -17,13 +15,12 @@ class TreeNode:
 def bfs(start, target):
     Open, Closed = [start], []
     while Open:
-        sleep(0.5)
         print("open:"+",".join([node.value for node in Open])+" close:"+",".join([node.value for node in Closed]))
         x = Open.pop(0)
         if x.value == target:
             return True
         else:
-            Closed.append(x)
+            Closed = [x] + Closed
             for child in x.children:
                 if child not in Closed:
                     Open.append(child)
@@ -41,9 +38,26 @@ if __name__ == "__main__":
     H = TreeNode("H", [])
     I = TreeNode("I", [])
     J = TreeNode("J", [])
+    K = TreeNode("K", [])
+    L = TreeNode("L", [])
+    M = TreeNode("M", [])
+    N = TreeNode("N", [])
+    O = TreeNode("O", [])
+    P = TreeNode("P", [])
+    Q = TreeNode("Q", [])
+    R = TreeNode("R", [])
+    S = TreeNode("S", [])
+    T = TreeNode("T", [])
     A.children += [B,C,D]
     B.children += [E,F]
     C.children += [G,H]
     D.children += [I,J]
+    E.children += [K,L]
+    F.children += [M,N]
+    G.children += [O]
+    H.children += [P,Q]
+    I.children += [R,S]
+    J.children += [T]
 
-    print(bfs(A, "J"))
+    print("Breadth First Search for Node T")
+    print(bfs(A, "T"))
